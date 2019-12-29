@@ -1,0 +1,71 @@
+<br>
+<div id="tudo">
+<!-- <div [hidden]="submitted===false" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Salvo com Sucesso!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"(click)="fechar()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div> -->
+<h1 [hidden]="submitted" style="padding-left:100px">Cadastrar Caminhão</h1>
+<br>
+<div [hidden]="submitted">
+    <div class="container">
+        <form class="needs-validation" (ngSubmit)="onSubmit()" [formGroup]="dadosCaminhao">
+            
+            <div class="row">
+                    <!-- <div class="col">
+                        <label >id</label>
+                        <input type="number" class="form-control" id="id" formControlName="id_" required  name="id">
+                    </div> -->
+                    <div class="col">
+                        <label >PLACA</label>
+                        <input type="text" class="form-control" id="placa" formControlName="placa" required  name="placa" maxlength="7">
+                    </div>
+                    <div class="col">
+                        <label >CIDADE</label>
+                        <input type="text" class="form-control" id="cidade" required  formControlName="cidade" name="cidade">
+                    </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                <label >ESTADO</label>
+                <!-- <input type="text" class="form-control" id="email" required  formControlName="email" name="email"> -->
+                <select class="custom-select" id="situacao" 
+                [(NGModel)]="estados" formControlName="estado">
+                        <option *ngFor="let x of estados">{{x}}</option>
+                </select> 
+                </div>
+            <div class="col">
+                <label >TIPO CAMINHÃO</label>
+                <input type="text" class="form-control" id="tipoCam" required  formControlName="tipoCaminhao"name="tipoCaminhao">
+            </div>
+
+            <div class="col">
+                <label >NOME MOTORISTA</label>
+                <input type="text" class="form-control" id="motorista" required formControlName="motorista" name="motorista">
+            </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label >NOME EMPRESA</label>
+                    <input type="text" class="form-control" id="empresa" required formControlName="empresa" name="empresa">
+                </div>
+                <div class="col">
+                    <label>PESO BRUTO</label>
+                    <input type="number" class="form-control" id="bruto" required formControlName="bruto" name="bruto">
+                </div>
+                <div class="col">
+                    <label>TARA</label>
+                    <input type="number" class="form-control" id="tara" required formControlName="tara" name="tara">
+            </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn-lg btn-success">Salvar</button>
+        </form>
+    </div>
+</div>
+</div>
+
+

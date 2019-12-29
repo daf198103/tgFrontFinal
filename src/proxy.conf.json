@@ -1,0 +1,7 @@
+{
+    "/projeto": {
+      "target": "http://localhost:8082",
+      "logLevel": "debug",
+      "secure": false
+    }
+  }

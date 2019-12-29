@@ -1,0 +1,73 @@
+<br>
+<div [hidden]="!naoexiste" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Editado com Sucesso!!</strong>
+    <button type="button" class="close" data-dismiss="alert" (click)="fechar()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<h1 [hidden]="submitted" style="padding-left:125px">Editar Caminhão</h1>
+<div [hidden]="submitted" >
+    <div class="container">
+        <form class="needs-validation" (ngSubmit)="onSubmit()" [formGroup]="caminhao" >
+            <div class="row">
+                <div class="col-1">
+                    <label >ID</label>
+                    <input type="text" disabled="true" class="form-control" id="userName" formControlName="cmn_id" required  name="id_" placeholder="{{this.cmn.id}}">
+                </div>
+            </div>
+            <br>
+                    <div class="row">
+                        <div class="col">
+                    <label >PLACA</label>
+                    <input type="text" disabled="true" class="form-control" id="userName" formControlName="placadocavalo" required  name="placadocavalo" placeholder="{{this.cmn.placaDoCavalo}}">
+                        </div>
+
+                        <div class="col">
+                    <label >CIDADE</label>
+                    <input type="text" disabled="true" class="form-control" id="cpf" formControlName="cidadedaplaca" required  name="cidadedaplaca" placeholder="{{this.cmn.cidadePlaca}}">
+                        </div>
+                        <div class="col">
+                    <label>ESTADO</label>
+                    <input type="text" disabled="true" class="form-control" id="function" required  formControlName="estadodaplaca" name="estadoPlaca" placeholder="{{this.cmn.estadoPlaca}}">
+                        </div>
+                    </div>
+            <br>
+            <div class="row">
+                    <div class="col">
+                        <label >TIPO CAMINHÃO</label>
+                        <input type="text" disabled="true" class="form-control" id="email" required  formControlName="tipocaminhao" name="tipocaminhao" placeholder="{{this.cmn.tipoCaminhao}}">
+                    </div>
+                    <div class="col">
+                        <label >NOME nomeMotorista</label>
+                        <input type="text" disabled="true"class="form-control" id="situation" required  formControlName="nomemotorista"name="nomeMotorista" placeholder="{{this.cmn.nomeMotorista}}">
+                    </div>
+                    <div class="col">
+                        <label>NOME EMPRESA</label>
+                        <input type="text" disabled="true"class="form-control" id="accessProfile" required formControlName="nomedaempresa" name="nomeEmpresa" placeholder="{{this.cmn.nomeEmpresa}}">
+                     </div>
+            </div> 
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label >PESO BRUTO</label>
+                    <input type="text" disabled="true" class="form-control" id="phone" required formControlName="pesototalbruto" name="pesoTotalBruto" placeholder="{{this.cmn.pesoTotalBruto}}">
+                </div>
+
+                <div class="col">
+                    <label >TARA</label>
+                    <input type="text" disabled="true" class="form-control" id="phone" required formControlName="tara" name="tara" placeholder="{{this.cmn.tara}}">
+                </div>
+
+                <div class="col">
+                    <label >QTDE CARREGADO</label>
+                    <input type="number" class="form-control" id="phone" required formControlName="cargamaxima" name="cargamaxima" placeholder="Quantidade Carregada">
+                </div>
+            </div>
+            <br><br>
+            
+                <button type="submit" class="btn-lg btn-success">Salvar</button>
+            
+    </form>
+</div>
+</div>
