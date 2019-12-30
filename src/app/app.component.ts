@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DataInfo - Cadastro de Usuários';
-
+  
   cpf:string;
 
 }

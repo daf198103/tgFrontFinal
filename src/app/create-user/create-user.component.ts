@@ -24,15 +24,15 @@ export class CreateUserComponent implements OnInit {
 'RJ','RN','RS','RO','RR','SC',
 'SP','SE','TO'
   ];
-  
+
 
   constructor(private userService: UserService, private http: HttpClient) { }
 
   ngOnInit() {
-    
+
     this.dadosCaminhao = new FormGroup({
-      id_ :new FormControl(''), 
-      placa: new FormControl(''), 
+      id_ :new FormControl(''),
+      placa: new FormControl(''),
       cidade: new FormControl(''),
       estado: new FormControl(''),
       tipoCaminhao: new FormControl(''),
@@ -54,6 +54,7 @@ export class CreateUserComponent implements OnInit {
     this.caminhao.tara = this.dadosCaminhao.value.tara;
     this.caminhao.carregado = false;
 
+
     this.userService.save(this.caminhao)
     .then((resposta) => {
       if(resposta == null){
@@ -67,16 +68,16 @@ export class CreateUserComponent implements OnInit {
 
     });
 
-    
-    
+
+
   }
-  
+
   fechar(){
     window.location.replace("user-list");
   }
 
-  
-    
 
-  
+
+
+
 }

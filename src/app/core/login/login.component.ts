@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   errorMessage = 'Usuário ou senha Inválidos!';
   roles: string[] = [];
   private loginInfo: AuthLoginInfo;
-  token: string; 
+  token: string;
   dataNull = false;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
@@ -52,10 +52,10 @@ export class LoginComponent implements OnInit {
     else
     {
     this.authService.attemptAuth(this.loginInfo).subscribe(
-    data => { 
+    data => {
       console.log(data);
       if(data == null)
-      {  
+      {
         alert("Usuário não Permitido!");
       }
       else
@@ -69,25 +69,31 @@ export class LoginComponent implements OnInit {
       window.location.replace("/");
       //this.roles = this.tokenStorage.getAuthorities();
       this.token = data;
-      console.log(this.token);
       }
     },
-    error => { 
+    error => {
       this.erro = 1;
       this.errorMessage = error.error.message;
-      this.isLoginFailed = true;         
-      
+      this.isLoginFailed = true;
       if(error.error.message == undefined) {
-      
+
         alert("Ocorreu uma falha na conexão com o servidor. Aguarde um momento e tente novamente. Se persistir, entre em contato com departamento de TI da sua empresa.");
       } else {
 
         alert("Usuário não permitido!");
       }
 
-    } 
+    }
   );
+
 
   }
 }
+
+  usuarioAutenticado(){
+    console.log(this.token);
+    return this.token;
+  }
+
+
 }

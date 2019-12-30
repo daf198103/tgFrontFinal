@@ -23,26 +23,33 @@ export class AuthService {
 
   /* ip miami: 192.168.0.244 */
 
-  
+
   private loginUrl = URL_API+'/projeto/login';
-  
+
   private signupUrl = URL_API+'/apipdv/api/auth/signup';
 
-  
+  token:any = '';
+
+
   constructor(private http: HttpClient) {
-    
+
   }
-  
-  attemptAuth(credentials: AuthLoginInfo): Observable<any> {   
+
+  attemptAuth(credentials: AuthLoginInfo): Observable<any> {
+   sessionStorage.setItem("token",JSON.stringify(this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions)));
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
-  
 
   signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
 
+  isLogado(){
+    console.log(sessionStorage.getItem("token"));
+    return this.token;
+  }
 
 
-  
+
+
 }

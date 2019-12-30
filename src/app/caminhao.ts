@@ -8,5 +8,5 @@ export class Caminhao {
    nomeEmpresa:string;
    pesoTotalBruto:number;
    tara:number;
-   carregado:boolean;  
+   carregado:boolean;
 }

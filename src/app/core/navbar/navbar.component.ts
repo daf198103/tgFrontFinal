@@ -9,10 +9,10 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
+
   info: any;
   loggedOut;
-  
+
   usuarioCadastraRota:boolean;
   public show:boolean = false;
   public buttonName:any = 'Show';
@@ -31,21 +31,21 @@ export class NavbarComponent implements OnInit {
       username: this.token.getUsername(),
       //authorities: this.token.getAuthorities()
     };
-    console.log(this.info.token);
-  
+    //console.log(this.info.token);
+
   }
-   
+
     logout(){
       this.token.signOut();
       window.location.replace("/");
     }
 
    /*  toggle(){
-      this.show = !this.show;     
-      if(this.show)  
+      this.show = !this.show;
+      if(this.show)
       this.buttonName = "Hide";
       else
       this.buttonName = "Show";
-    }   */      
+    }   */
 
 }

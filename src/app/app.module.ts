@@ -15,8 +15,9 @@ import { LoginComponent } from './core/login/login.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 
 import { AuthInterceptor, httpInterceptorProviders } from './core/auth/auth-interceptor';
+
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { AuthLoginInfo } from './core/auth/login-info';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 
@@ -43,7 +44,7 @@ import { AuthLoginInfo } from './core/auth/login-info';
 
   ],
   providers: [CreateUserComponent,UserDetailsComponent,UserListComponent,httpInterceptorProviders,
-  LoginComponent, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  LoginComponent, {provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
