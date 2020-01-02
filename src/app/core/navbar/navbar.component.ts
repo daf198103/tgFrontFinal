@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,8 +22,8 @@ export class NavbarComponent implements OnInit {
 
   cadastraRota:boolean;
 
-  constructor(private login:LoginComponent, private token: TokenStorageService, private serv: AuthService
-) { }
+  constructor(private login:LoginComponent, private token: TokenStorageService, private serv: AuthService,
+    private route:Router) { }
 
 
   ngOnInit() {
@@ -36,8 +37,12 @@ export class NavbarComponent implements OnInit {
   }
 
     logout(){
+      console.log("LOGOUT TRUE")
       this.token.signOut();
-      window.location.replace("/");
+      this.info.token = null;
+      this.route.navigate(['']);
+      console.log("Logout completo");
+
     }
 
    /*  toggle(){

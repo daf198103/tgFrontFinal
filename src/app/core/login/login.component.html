@@ -4,58 +4,58 @@
         <img src="assets/img/tubarao.jpg" alt="Logo" class="img-responsive" />
             <br>
         <br>
-        
+
 
         <div>
         <div class="container padding-bottom-3x mb-2" #loggedOut>
           <div class="row">
               <div class="col-md-4"></div>
             <div class="col-md-4">
-              
-              <div [hidden]="isLoggedIn == true">
+
+              <div [hidden]="this.tokenStorage.getToken()!=null">
               <form class="login-box" id="login" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="{{ msg[1] }}" role="alert">
-                  {{ msg[0] }} 
+                  {{ msg[0] }}
                 </div>
                 <div class="form-group input-group" >
                   <input class="form-control" type="text" name="username" #username="ngModel" [(ngModel)]="form.username"
                   required style="border-radius: 100px!important;"
-                  ><span class="input-group-addon" style=" left: 13px!important;top: 16px!important;"><i class="icon-head "></i></span> 
+                  ><span class="input-group-addon" style=" left: 13px!important;top: 16px!important;"><i class="icon-head "></i></span>
                   <div *ngIf="f.submitted && username.invalid">
                     <div *ngIf="username.errors.required">Username is required</div>
                   </div>
                 </div>
                 <label>Usuário</label>
                 <br><br>
-        
+
                 <div class="form-group input-group">
                   <input class="form-control" type="password" name="password" [(ngModel)]="form.password"
                   #password="ngModel" required style="border-radius: 100px!important;"
                   (keydown)="onKeydown($event)"><span class="input-group-addon" style=" left: 13px!important;top: 16px!important;"><i class="icon-lock"></i></span>
                 </div>
                 <label>Senha</label>
-        
+
                 <div *ngIf="f.submitted && password.invalid">
                   <div *ngIf="password.errors.required">Password is required</div>
         <!--           <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
          -->        </div>
-        
+
                 <div class="text-center text-sm-center">
                   <button class="btn btn-primary margin-bottom-none" type="button" (click)="onSubmit()"
                   (keydown)="onKeydown($event)">Entrar</button>
-        
+
                   <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
                   Login failed: {{errorMessage}}
                   </div>
-        
+
                 </div>
-        
+
               </form>
             </div>
             </div>
           </div>
         </div>
-         <!-- </ng-template> --> 
+         <!-- </ng-template> -->
         </div>
-        
+
         <a class="scroll-to-top-btn" href="#"><i class="icon-arrow-up"></i></a>

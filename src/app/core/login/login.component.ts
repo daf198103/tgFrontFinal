@@ -51,8 +51,9 @@ export class LoginComponent implements OnInit {
     }
     else
     {
-    this.authService.attemptAuth(this.loginInfo).subscribe(
-    data => {
+    this.authService.attemptAuth(this.loginInfo)
+    .toPromise()
+    .then((data) => {
       console.log(data);
       if(data == null)
       {
@@ -85,14 +86,11 @@ export class LoginComponent implements OnInit {
 
     }
   );
-
-
   }
 }
 
   usuarioAutenticado(){
-    console.log(this.token);
-    return this.token;
+    return this.tokenStorage.getToken();
   }
 
 

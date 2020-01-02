@@ -17,7 +17,8 @@ export class TokenStorageService {
   constructor(private auth: AuthService ) { }
 
   signOut() {
-    window.sessionStorage.clear();
+    window.sessionStorage.removeItem(TOKEN_KEY);
+
   }
 
   public saveToken(token: string) {
@@ -54,10 +55,10 @@ export class TokenStorageService {
 
     return this.roles; */
   }
-  
+
  /*  public getSysId(){
     return this.sysid;
   } */
 
-  
+
 

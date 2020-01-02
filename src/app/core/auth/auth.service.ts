@@ -36,7 +36,6 @@ export class AuthService {
   }
 
   attemptAuth(credentials: AuthLoginInfo): Observable<any> {
-   sessionStorage.setItem("token",JSON.stringify(this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions)));
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
 
@@ -44,10 +43,6 @@ export class AuthService {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
 
-  isLogado(){
-    console.log(sessionStorage.getItem("token"));
-    return this.token;
-  }
 
 
 
